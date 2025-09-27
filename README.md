@@ -1,2 +1,2 @@
 # Calculator_Imc
-A project for a college work
+A project of a imc calculator for a college work
