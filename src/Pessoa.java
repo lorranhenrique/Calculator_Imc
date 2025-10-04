@@ -47,31 +47,31 @@ public class Pessoa {
         float imc = calcularImc();
 
         if(genero.equals("masculino")){
-            if(imc < 20.7) {
+            if(imc < 20.7f) {
                 return "Abaixo do peso";
             }
-            else if(imc < 26.4) {
+            else if(imc < 26.4f) {
                 return "Peso normal";
             }
-            else if(imc < 27.8) {
+            else if(imc < 27.8f) {
                 return "Marginalmente acima";
             }
-            else if(imc < 31.1) {
+            else if(imc < 31.1f) {
                 return "Acima do peso";
             }
             return "Obeso";
         }
         else{
-            if(imc < 19.1) {
+            if(imc < 19.1f) {
                 return "Abaixo do peso";
             }
-            else if(imc < 25.8) {
+            else if(imc < 25.8f) {
                 return "Peso normal";
             }
-            else if(imc < 27.2) {
+            else if(imc < 27.2f) {
                 return "Marginalmente acima";
             }
-            else if(imc < 32.3) {
+            else if(imc < 32.3f) {
                 return "Acima do peso";
             }
             return "Obeso";
