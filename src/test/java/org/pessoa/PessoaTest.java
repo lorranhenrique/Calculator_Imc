@@ -1,31 +1,46 @@
+package org.pessoa;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(MockitoExtension.class)
 class PessoaTest {
 
+    @Mock
     Pessoa pessoa;
+
+    @InjectMocks
+    CalculadoraImc calculadoraImc;
 
     @BeforeEach
     void setUp() {
+        MockitoAnnotations.initMocks(this);
         pessoa = new Pessoa();
+        calculadoraImc = new CalculadoraImc();
     }
-
 
     @Test
     void deveRetornarMasculinoAbaixoDoPeso() {
         pessoa.setPeso(20.6f);
         pessoa.setAltura(1f);
         pessoa.setGenero("masculino");
-        assertEquals("Abaixo do peso", pessoa.definirStatusImc());
+        pessoa.setImc();
+        assertEquals("Abaixo do peso", calculadoraImc.definirStatusImc(pessoa));
     }
     @Test
     void deveRetornarMasculinoPesoNormal() {
         pessoa.setPeso(26.3f);
         pessoa.setAltura(1f);
         pessoa.setGenero("masculino");
-        assertEquals("Peso normal", pessoa.definirStatusImc());
+        pessoa.setImc();
+        assertEquals("Peso normal", calculadoraImc.definirStatusImc(pessoa));
     }
 
     @Test
@@ -43,5 +58,4 @@ class PessoaTest {
             assertEquals("peso invalido", e.getMessage());
         }
     }
-
 }
